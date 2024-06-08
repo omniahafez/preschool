@@ -1,11 +1,12 @@
 <?php
 
 use App\Http\Controllers\Frontpages;
+use App\Http\Controllers\DashBoard;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('test2');
+    return view('home');
 });
 
 Route::get('home',[Frontpages::class,'home'])->name('home');
@@ -19,3 +20,11 @@ Route::get('appointment',[Frontpages::class,'appointment'])->name('appointment')
 Route::get('testimonial',[Frontpages::class,'testimonial'])->name('testimonial');
 Route::get('error',[Frontpages::class,'error'])->name('error');
 
+
+Route::get('dashHome',[DashBoard::class,'dashHome'])->name('dashHome');
+
+Route::get('dashLogin',[DashBoard::class,'dashLogin'])->name('dashLogin');
+Route::post('dashLogin',[DashBoard::class,'receiveData'])->name('receiveData');
+
+Route::get('dashRegister',[DashBoard::class,'dashRegister'])->name('dashRegister');
+Route::post('dashRegister', [DashBoard::class, 'store'])->name('dashRegister.store');

@@ -2,71 +2,49 @@
 <html lang="en">
 
 <head>
-@include('includes.head')
+  @include('dashIncludes.head')
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
-        @include('includes.spinner')
-        <!-- Spinner End -->
 
+  <!-- ======= Header ======= -->
+  @include('dashIncludes.header')
+  <!-- ======= Sidebar ======= -->
+  @include('dashIncludes.sideBar')
 
-        <!-- Navbar Start -->
-        @include('includes.navbar')
-        <!-- Navbar End -->
+  <main id="main" class="main">
 
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
 
-        <!-- Carousel Start -->
-        @include('includes.carousel')
-        <!-- Carousel End -->
+    <section class="section dashboard">
+      <div class="row">
 
+        <!-- Left side columns -->
 
-        <!-- Facilities Start -->
-        @include('includes.facilities')
-        <!-- Facilities End -->
+        @include('dashIncludes.leftSideColumns')
+               <!-- Right side columns -->
+               @include('dashIncludes.rightSideColumns')
 
+      </div>
+    </section>
 
-        <!-- About Start -->
-        @include('includes.about')
-        <!-- About End -->
+  </main><!-- End #main -->
 
+  <!-- ======= Footer ======= -->
+  @include('dashIncludes.footer')
 
-        <!-- Call To Action Start -->
-        @include('includes.callToAction')
-        <!-- Call To Action End -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  @include('dashIncludes.footerJs')
 
-        <!-- Classes Start -->
-        @include('includes.classes')
-        <!-- Classes End -->
-
-
-        <!-- Appointment Start -->
-        @include('includes.appointment')
-        <!-- Appointment End -->
-
-
-        <!-- Team Start -->
-        @include('includes.team')
-        <!-- Team End -->
-
-
-        <!-- Testimonial Start -->
-        @include('includes.testimonial')
-        <!-- Testimonial End -->
-
-
-        <!-- Footer Start -->
-        @include('includes.footer')
-        <!-- Footer End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
-
-    @include('includes.footerJs')
 </body>
 
 </html>
