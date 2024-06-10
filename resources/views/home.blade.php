@@ -1,40 +1,23 @@
-@extends('layouts.main')
+@extends('layouts.app')
+
 @section('content')
-@include('includes.carousel')
-        <!-- Carousel End -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-        <!-- Facilities Start -->
-        @include('includes.facilities')
-        <!-- Facilities End -->
-
-
-        <!-- About Start -->
-        @include('includes.about')
-        <!-- About End -->
-
-
-        <!-- Call To Action Start -->
-        @include('includes.callToAction')
-        <!-- Call To Action End -->
-
-
-        <!-- Classes Start -->
-        @include('includes.classes')
-        <!-- Classes End -->
-
-
-        <!-- Appointment Start -->
-        @include('includes.appointment')
-        <!-- Appointment End -->
-
-
-        <!-- Team Start -->
-        @include('includes.team')
-        <!-- Team End -->
-
-
-        <!-- Testimonial Start -->
-        @include('includes.testimonial')
-        <!-- Testimonial End -->
-        @endsection
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

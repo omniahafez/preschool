@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
-Route::get('home',[Frontpages::class,'home'])->name('home');
+Route::get('home2',[Frontpages::class,'home2'])->name('home2');
 Route::get('about',[Frontpages::class,'about'])->name('about');
 Route::get('classes',[Frontpages::class,'classes'])->name('classes');
 Route::get('contact',[Frontpages::class,'contact'])->name('contact');
