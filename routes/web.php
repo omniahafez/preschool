@@ -21,10 +21,19 @@ Route::get('testimonial',[Frontpages::class,'testimonial'])->name('testimonial')
 Route::get('error',[Frontpages::class,'error'])->name('error');
 
 
-Route::get('dashHome',[DashBoard::class,'dashHome'])->name('dashHome');
+Route::prefix('dashboard')->group(function () {
+    Route::get('/index', [Dashboard::class, 'index'])->name('dashboard.index');
+});
+    //Route::get('/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
+    //Route::get('/settings', [SettingsController::class, 'index'])->name('dashboard.settings');
 
-Route::get('dashLogin',[DashBoard::class,'dashLogin'])->name('dashLogin');
-Route::post('dashLogin',[DashBoard::class,'receiveData'])->name('receiveData');
+//Route::get('dashHome',[DashBoard::class,'dashHome'])->name('dashHome');
 
-Route::get('dashRegister',[DashBoard::class,'dashRegister'])->name('dashRegister');
-Route::post('dashRegister', [DashBoard::class, 'store'])->name('dashRegister.store');
+//Route::get('dashLogin',[DashBoard::class,'dashLogin'])->name('dashLogin');
+//Route::post('dashLogin',[DashBoard::class,'receiveData'])->name('receiveData');
+
+//Route::get('dashRegister',[DashBoard::class,'dashRegister'])->name('dashRegister');
+//Route::post('dashRegister', [DashBoard::class, 'store'])->name('dashRegister.store');
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

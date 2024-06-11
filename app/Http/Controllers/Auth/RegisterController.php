@@ -28,6 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+    protected $title;
     protected $redirectTo = '/home';
 
     /**
@@ -38,8 +39,15 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->title = 'Register Page';
     }
-
+     /**
+    * @return \Illuminate\View\View
+    */
+   public function showRegistrationForm()
+   {
+       return view('auth.register', ['title' => $this->title]);
+   }
     /**
      * Get a validator for an incoming registration request.
      *

@@ -203,14 +203,14 @@
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('dashRegister')}}">
+        <a class="nav-link collapsed" href="{{route('register')}}">
           <i class="bi bi-card-list"></i>
           <span>Register</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('dashLogin')}}">
+        <a class="nav-link collapsed" href="{{route('login')}}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Login</span>
         </a>

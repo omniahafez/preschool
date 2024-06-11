@@ -24,8 +24,10 @@ class LoginController extends Controller
      * Where to redirect users after login.
      *
      * @var string
-     */
-    protected $redirectTo = '/home';
+     * */
+     protected $title;
+     
+    protected $redirectTo = '/dashHome';
 
     /**
      * Create a new controller instance.
@@ -36,5 +38,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
+        $this->title = 'Login Page';
+    }
+    public function showLoginForm()
+    {
+        return view('auth.login', ['title' => $this->title]);
     }
 }
