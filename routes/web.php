@@ -9,6 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::post('insertteacher', [Dashboard::class,'store'])->name('insertteacher');
+
+
+
 Route::get('home2',[Frontpages::class,'home2'])->name('home2');
 Route::get('about',[Frontpages::class,'about'])->name('about');
 Route::get('classes',[Frontpages::class,'classes'])->name('classes');
@@ -23,6 +28,11 @@ Route::get('error',[Frontpages::class,'error'])->name('error');
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/index', [Dashboard::class, 'index'])->name('dashboard.index');
+    Route::get('/addTeacher', [Dashboard::class, 'create'])->name('dashboard.addTeacher');
+    Route::get('/teachers', [Dashboard::class, 'indexTeacher'])->name('dashboard.teachers');
+    Route::get('/editTeacher/{id}', [Dashboard::class, 'edit'])->name('dashboard.editTeacher');
+    Route::put('updateTeacher/{id}', [Dashboard::class, 'update'])->name('updateTeacher');
+    Route::get('showTeacher/{id}', [Dashboard::class, 'show'])->name('showTeacher');
 });
     //Route::get('/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
     //Route::get('/settings', [SettingsController::class, 'index'])->name('dashboard.settings');

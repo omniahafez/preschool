@@ -11,31 +11,9 @@
   @include('dashIncludes.header')
   <!-- ======= Sidebar ======= -->
   @include('dashIncludes.sideBar')
-
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section dashboard">
-      <div class="row">
-
-        <!-- Left side columns -->
+ 
 @yield('content')
-        
-
-      </div>
-    </section>
-
-  </main><!-- End #main -->
-
+      
   <!-- ======= Footer ======= -->
   @include('dashIncludes.footer')
 

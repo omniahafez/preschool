@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('fullName,100');
-            $table->string('image,100');
-            $table->string('phone,50');
-            $table->string('facebook');
-            $table->string('twitter');
-            $table->string('instagram');
-            //$table->foreignId('class_id)->constrained('classes');
+            $table->string('fullName', 100);
+            $table->string('image', 100);
+            $table->string('phone', 50);
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
