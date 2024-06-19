@@ -25,45 +25,71 @@
               <form action="{{ route('insertteacher')}}" method="post" enctype="multipart/form-data">
               @csrf
                 <div class="row mb-3">
-                  <label for="inputfullName" name="fullName" value="{{old ('fullName')}}" class="col-sm-2 col-form-label">Full Name</label>
+                  <label for="inputfullName" class="col-sm-2 col-form-label">Full Name</label>
                   <div class="col-sm-10">
-                  
-                    <input type="text" class="form-control">
+
+                  <p style="color: red">
+@error('fullName')
+{{$message}}
+@enderror
+</p>
+                    <input type="text"name="fullName" value="{{old ('fullName')}}" class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputPhone" name="phone" value="{{old ('phone')}}" class="col-sm-2 col-form-label">Phone</label>
+                  <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                  <p style="color: red">
+@error('phone')
+{{$message}}
+@enderror
+</p>
+                    <input type="text" name="phone" value="{{old ('phone')}}"class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputFacebook" name="facebook" value="{{old ('facebook')}}" class="col-sm-2 col-form-label">Facebook</label>
+                  <label for="inputFacebook" class="col-sm-2 col-form-label">Facebook</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                  <p style="color: red">
+@error('facebook')
+{{$message}}
+@enderror
+</p>
+                    <input type="text" name="facebook" value="{{old ('facebook')}}" class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputTwitter" name="twitter" value="{{old ('twitter')}}" class="col-sm-2 col-form-label">Twitter</label>
+                  <label for="inputTwitter" class="col-sm-2 col-form-label">Twitter</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                  <p style="color: red">
+@error('twitter')
+{{$message}}
+@enderror
+</p>
+                    <input type="text" name="twitter" value="{{old ('twitter')}}" class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputInstagram" name="instagram" value="{{old ('instagram')}}" class="col-sm-2 col-form-label">Instagram</label>
+                  <label for="inputInstagram" class="col-sm-2 col-form-label">Instagram</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                  <p style="color: red">
+@error('instagram')
+{{$message}}
+@enderror
+</p>
+                    <input type="text" name="instagram" value="{{old ('instagram')}}" class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-3">
-                  <label for="inputNumber" name="image" value="{{old ('image')}}" class="col-sm-2 col-form-label">image</label>
+                  <label for="inputNumber" class="col-sm-2 col-form-label">image</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" name="image" value="{{old ('image')}}" type="file" id="formFile">
+                    
                   </div>
                 </div>
 

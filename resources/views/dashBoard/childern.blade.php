@@ -1,12 +1,14 @@
+@extends('./layouts.dashMain')
+@section('content')
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Teachers</h1>
+      <h1>childern</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Teachers</li>
+          <li class="breadcrumb-item active">childern</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -17,7 +19,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Teachers</h5>
+              <h5 class="card-title">childern</h5>
              {{-- <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable. Check for <a href="https://fiduswriter.github.io/simple-datatables/demos/" target="_blank">more examples</a>.</p>--}}
 
               <!-- Table with stripped rows -->
@@ -26,28 +28,30 @@
                 <thead>
                   <tr>
                     <th>
-                      <b>Full Name</b>
+                      <b>childName</b>
                     </th>
-                    <th>Phone</th>
-                    <th>Facebook</th>
-                    <th>Twitter</th>
-                    <th>Instagram</th>
-                    <th>edit</th>
+                    <th>birthDate</th>
                     <th>show</th>
+                    <th>delete</th>
                     
                   </tr>
                 </thead>
 
                 <tbody>
-                @foreach($teachers as $teacher)
+                @foreach($childern as $child)
+            
                   <tr>
-                    <td>{{$teachers->fullName}}</td>
-                    <td>{{$teachers->phone}}</td>
-                    <td>{{$teachers->facebook}}</td>
-                    <td>{{$teachers->twitter}}</td>
-                    <td>{{$teachers->instagram}}</td>
-                    <td><a href="{{ route('editTeachers', $teacher->id)}}">Edit</a></td>
-                    <td><a href="{{ route('showTeachers', $teacher->id)}}">show</a></td>
+                  <td>{{ $child->childName }}</td>
+                    <td>{{ $child->birthDate }}</td>
+                    <td><a href="{{ route('dashboard.showChild', $child->id)}}">show</a></td>
+                    <td>
+        <form action="{{ route ('dashboard.delChild')}}"  method="post">
+        @csrf
+    @method('delete')
+            <input type="hidden" value="{{$child->id}}" name="id">
+            <input type="submit" onclick="return confirm('Are you sure you want to delete?')" value="Delete">
+          </form>
+          </td>
                     
                   </tr>
 
@@ -64,3 +68,6 @@
     </section>
 
   </main><!-- End #main -->
+
+               
+               @endsection

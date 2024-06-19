@@ -18,5 +18,10 @@ class Teacher extends Model
         'instagram',
         'image',
     ];
+
+    public function kiderClasses()
+    {
+        return $this->hasMany(KiderClass::class);
+    }
         
 }

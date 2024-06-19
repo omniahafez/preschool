@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link {{ request()->is('dashboard.index') ? 'active' : '' }}" href="{{ route('dashboard.index') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -16,7 +16,7 @@
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
+              <i class=" bi bi-circle"></i><span>Alerts</span>
             </a>
           </li>
           <li>
@@ -88,48 +88,73 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed {{ request()->is('dashboard/addTeacher') || request()->is('dashboard/addChild') || request()->is('dashboard/addKiderClass') || request()->is('dashboard/addChildToClass') ? 'active' : '' }}" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+        <ul id="forms-nav" class="nav-content collapse {{ request()->is('dashboard/addTeacher') || request()->is('dashboard/addChild') || request()->is('dashboard/addKiderClass')|| request()->is('dashboard/addChildToClass') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+        
+        <li>
+            <a href="{{ route('dashboard.addTeacher') }}" class="{{ request()->is('dashboard/addTeacher') ? 'active' : '' }}" >
+              <i class="bi bi-circle "></i><span>Form add teacher</span>
             </a>
           </li>
+
+
+
           <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
+            <a href="{{route('dashboard.addChild')}}" class="{{ request()->is('dashboard/addChild') ? 'active' : '' }}" >
+              <i class="bi bi-circle "></i><span>Form add child</span>
             </a>
           </li>
+
           <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
+            <a href="{{route('dashboard.addKiderClass')}}" class="{{ request()->is('dashboard/addKiderClass') ? 'active' : '' }}" >
+              <i class="bi bi-circle "></i><span>Form add Kider Class</span>
             </a>
           </li>
+
+
           <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+            <a href="{{route('dashboard.addChildToClass')}}" class="{{ request()->is('dashboard/addChildToClass') ? 'active' : '' }}" >
+              <i class="bi bi-circle "></i><span>Form add Kider Class</span>
             </a>
           </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+      <a class="nav-link collapsed {{ request()->is('dashboard/teachers') || request()->is('dashboard/trashTeacher') || request()->is('dashboard/childern') || request()->is('dashboard/KiderClasses') ? 'active' : '' }}" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
+        <ul id="tables-nav" class="nav-content collapse {{ request()->is('dashboard/teachers') || request()->is('dashboard/trashTeacher') || request()->is('dashboard/childern') || request()->is('dashboard/KiderClasses') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+         
+        <li>
+        <a href="{{ route('dashboard.teachers') }}" class="{{ request()->is('dashboard/teachers') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>teacheres</span>
             </a>
           </li>
+
           <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+          <a href="{{ route('dashboard.trashTeacher') }}" class="{{ request()->is('dashboard/trashTeacher') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>restore teacher</span>
             </a>
           </li>
+
+
+          <li>
+          <a href="{{ route('dashboard.childern') }}" class="{{ request()->is('dashboard/childern') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Childern</span>
+            </a>
+          </li>
+
+          <li>
+          <a href="{{ route('dashboard.KiderClasses') }}" class="{{ request()->is('dashboard.KiderClasses') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Kider Classes</span>
+            </a>
+          </li>
+
+          
         </ul>
       </li><!-- End Tables Nav -->
 
