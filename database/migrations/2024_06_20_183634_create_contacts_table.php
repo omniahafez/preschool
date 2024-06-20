@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('children__classes', function (Blueprint $table) {
-            $table->foreignId('class_id')->constrained('kider_classes');
-            $table->foreignId('child_id')->constrained('children');
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->id();
+            $table->string('name',100);
+            $table->string('email',100);
+            $table->string('subject',100);
+            $table->string('message',250);
             $table->timestamps();
-
-            $table->primary(['class_id', 'child_id']); // same student cannot be enrolled in the same class more than once.
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('children__classes');
+        Schema::dropIfExists('contacts');
     }
 };

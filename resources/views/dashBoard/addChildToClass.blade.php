@@ -25,13 +25,13 @@
 
 
               <form action="{{ route('insertChildren_classes') }}" method="POST">
-    @csrf
+    @csrf 
     <div class="row mb-3">
                                 <label for="child_id" class="col-sm-2 col-form-label">Child</label>
                                 <div class="col-sm-10">
                                     <select class="form-select" name="child_id" id="child_id" required>
                                         @foreach($children as $child)
-                                            <option value="{{ $child->id }}">{{ $child->name }}</option>
+                                            <option value="{{ $child->id }}">{{ $child->childName }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -42,7 +42,7 @@
                                 <div class="col-sm-10">
                                     <select class="form-select" name="class_id" id="class_id" required>
                                         @foreach($classes as $class)
-                                            <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                            <option value="{{ $class->id }}">{{ $class->className }}</option>
                                         @endforeach
                                     </select>
                                 </div>

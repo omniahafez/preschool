@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChildernController;
 use App\Http\Controllers\Frontpages;
 use App\Http\Controllers\DashBoard;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\KiderClassesControl;
 use App\Http\Controllers\Children_ClassesController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,9 @@ Route::post('insertteacher', [Dashboard::class,'store'])->name('insertteacher');
 Route::post('insertChild', [ChildernController::class,'store'])->name('insertChild');
 Route::post('insertKiderClass', [KiderClassesControl::class,'store'])->name('insertKiderClass');
 Route::post('insertChildren_classes', [Children_ClassesController::class, 'store'])->name('insertChildren_classes');
+
+Route::post('insertContact', [ContactController::class, 'store'])->name('insertContact');
+Route::post('insertContact', [ContactController::class, 'sendMail'])->name('insertContact');
 
 Route::get('home2',[Frontpages::class,'home2'])->name('home2');
 Route::get('about',[Frontpages::class,'about'])->name('about');

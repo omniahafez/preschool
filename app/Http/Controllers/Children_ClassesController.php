@@ -26,6 +26,7 @@ class Children_ClassesController extends Controller
         $title = "Add child to class";
         $children = Child::all();
         $classes = KiderClass::all(); // Replace with the correct model name if different
+        // dd($classes);
         return view('dashboard.addChildToClass', compact('title', 'children', 'classes'));
 
     }
@@ -39,7 +40,7 @@ class Children_ClassesController extends Controller
             'child_id' => 'required|exists:children,id',
             'class_id' => 'required|exists:kider_classes,id',
         ]);
-    
+        
         Child_Class::create($data);
         //return redirect('dashboard/KiderClasses');
         return 'add';
