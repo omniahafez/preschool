@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Traits\Traits\UploadFile;
 use Illuminate\Http\Request;
 use App\Models\KiderClass;
+use App\Models\Teacher;
 
 class KiderClassesControl extends Controller
 {
@@ -20,10 +21,11 @@ class KiderClassesControl extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() 
     {
         $title ="Add kider class";
-        return view('dashboard.addKiderClass', compact('title'));
+        $teachers = Teacher::all();
+        return view('dashboard.addKiderClass', compact('title', 'teachers'));
     }
 
     /**

@@ -8,7 +8,11 @@ use App\Http\Controllers\KiderClassesControl;
 use App\Http\Controllers\Children_ClassesController;
 use Illuminate\Support\Facades\Route;
 
-
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
 Route::get('/', function () {
     return view('welcome');
 });
@@ -61,11 +65,15 @@ Route::prefix('dashboard')->group(function () {
 
 
     Route::get('/addChildToClass', [Children_ClassesController::class, 'create'])->name('dashboard.addChildToClass');
+    Route::get('/childToClasses', [Children_ClassesController::class, 'index'])->name('dashboard.childToClasses');
+    // Route::get('/editChildToClass/{id}', [Children_ClassesController::class, 'edit'])->name('dashboard.editChildToClass');
+    // Route::put('/updateChildToClass/{id}', [Children_ClassesController::class, 'update'])->name('dashboard.updateChildToClass');
+    // Route::delete('/delChildToClass', [Children_ClassesController::class, 'destroy'])->name('dashboard.delChildToClass');
 
 
-
-
-
+    Route::get('/contact', [ContactController::class, 'index'])->name('dashboard.contact');
+    Route::get('/showEmail/{id}', [ContactController::class, 'show'])->name('dashboard.showEmail');
+    
 
 });
     //Route::get('/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
@@ -81,3 +89,4 @@ Route::prefix('dashboard')->group(function () {
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});

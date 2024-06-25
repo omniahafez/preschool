@@ -19,9 +19,11 @@ class ContactController extends Controller
         ]);
         
         Contact::create($data);
-        //return redirect('dashboard/KiderClasses');
+        
         return 'add';
+
     }
+    
 
     public function sendMail(Request $request)
     {
@@ -38,5 +40,23 @@ class ContactController extends Controller
         return"mail send";
     }
 
+    public function index()
+    {
+        $title = "Contact";
+        $emails= Contact::get ();
+        $messages = Contact::where('readable', 0)->take(3)->get();
+    return view('dashboard.contact', compact('title','emails','messages'));
+    }
+    
+
+    public function show(string $id)
+    {
+        $title = "contact";
+        $email = Contact::findOrFail($id);
+        $messages = Contact::where('readable', 0)->take(3)->get();
+    Contact::where('id',$id)->update(['readable'=> 1]);
+    return view('dashboard.showEmail', compact('email', 'title','messages'));
+
+ }
 
 }

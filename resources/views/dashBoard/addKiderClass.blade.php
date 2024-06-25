@@ -102,14 +102,14 @@
     
 
                            <div class="row mb-3">
-                  <label for="inputteacher_id" class="col-sm-2 col-form-label">teacher id</label>
+                  <label for="inputteacher_id" class="col-sm-2 col-form-label">teacher Name</label>
                   <div class="col-sm-10">
-                  <p style="color: red">
-@error('teacher_id')
-{{$message}}
-@enderror
-</p>
-                    <input type="text" name="teacher_id" value="{{old ('teacher_id')}}" class="form-control">
+                  <select class="form-select" name="teacher_id" id="teacher_id" required>
+                                        @foreach($teachers as $teacher)
+                                            <option value="{{ $teacher->id }}">{{ $teacher->fullName }}</option> 
+                                        @endforeach
+                                    </select>
+                    
                   </div>
                 </div>
 

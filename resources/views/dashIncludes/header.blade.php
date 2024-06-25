@@ -114,14 +114,14 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-
+            @foreach($messages as $message)
             <li class="message-item">
-              <a href="#">
-                <img src="{{ asset('dashAssets/assets/img/messages-1.jpg')}}" alt="" class="rounded-circle">
+              <a href="{{ route('dashboard.showEmail', $message->id) }}">
+                
                 <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
+                  <h4>{{ $message->name }}</h4>
+                  <p>{{ $message->subject }}</p>
+                  <p>{{ $message->message }}</p>
                 </div>
               </a>
             </li>
@@ -129,36 +129,10 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="{{ asset('dashAssets/assets/img/messages-2.jpg')}}" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="{{ asset('dashAssets/assets/img/messages-3.jpg')}}" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+            @endforeach
 
             <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
+              <a href="{{ route('dashboard.contact') }}">Show all messages</a>
             </li>
 
           </ul><!-- End Messages Dropdown Items -->

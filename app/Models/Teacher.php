@@ -17,6 +17,7 @@ class Teacher extends Model
         'twitter',
         'instagram',
         'image',
+        'designation',
     ];
 
     public function kiderClasses()

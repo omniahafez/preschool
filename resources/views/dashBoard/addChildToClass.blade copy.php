@@ -17,14 +17,6 @@
       <div class="row">
         <div class="col-lg-6">
 
-
-        @if(session('error'))
-                <div class="alert alert-danger" role="alert">
-                    {{ session('error') }}
-                </div>
-                @endif
-
-
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">General Add child to class</h5>

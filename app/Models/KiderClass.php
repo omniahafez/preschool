@@ -27,7 +27,10 @@ class KiderClass extends Model
       {
           return $this->belongsToMany(Child::class, 'children_classes', 'class_id', 'child_id');
       }
-
+      public function childClasses()
+      {
+          return $this->hasMany(Child_Class::class, 'class_id');
+      }
 
 
 }
